@@ -1,38 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
+// import { Skeleton } from "@/components/ui/skeleton"
+import { useEffect, useState } from "react";
+import Loader from './components/Loader'
+import TopNavBar from "./components/TopNavBar";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [loading,setLoading] = useState(true)
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000);
+  },[])
 
   return (
-    <>
+    <div>
       <Analytics/>
       <SpeedInsights/>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Loader isOpen={loading}/>
+      <TopNavBar isOpen={loading}/>
+
+      <div className='flex flex-col gap-16 p-5 w-full h-[91vh] overflow-y-scroll bg-stone-100 pt-5'>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Home
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            About
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Skills
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Projects
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Qualifications
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Contact
+          </div>
+
+          <div className="flex items-center space-x-4 border w-full border-black justify-center p-10">
+            Footer
+          </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
