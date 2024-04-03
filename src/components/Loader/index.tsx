@@ -11,8 +11,7 @@ export default function Loader({isOpen}:LoaderProps) {
         preserveAspectRatio: "xMidYMid slice"
       }
     };
-  if(isOpen)
-  return (
+  if(isOpen) return (
     <div className='absolute flex flex-col text-2xl text-white justify-center items-center w-screen h-screen bg-black bg-opacity-70 z-[1000]'>
       <Lottie
         options={defaultOptions}
@@ -22,4 +21,5 @@ export default function Loader({isOpen}:LoaderProps) {
       Loading Portfolio.....
     </div>
   );
+  else return null
 }
