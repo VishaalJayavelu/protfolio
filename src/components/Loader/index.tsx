@@ -21,5 +21,14 @@ export default function Loader({isOpen}:LoaderProps) {
       Loading Portfolio.....
     </div>
   );
-  else return null
+  else return (
+    <div className='absolute flex flex-col text-2xl text-white justify-center items-center w-screen h-screen bg-black bg-opacity-70 z-[1000]'>
+      <Lottie
+        options={defaultOptions}
+        height={400}
+        width={400}
+      />
+      Portfolio Is Under Progress.....
+    </div>
+  )
 }
